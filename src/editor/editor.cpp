@@ -6,6 +6,8 @@
 #include <random>
 #include <thread>
 
+#include <GLFW/glfw3.h>
+
 void randomSleep(float min_ms, float max_ms)
 {
     std::random_device                    rd;
@@ -17,11 +19,16 @@ void randomSleep(float min_ms, float max_ms)
     auto duration          = std::chrono::milliseconds(durationInSeconds);
     std::this_thread::sleep_for(duration);
 
-    std::cout << "Waited for " << dt << " ms." << std::endl;
+    std::cout << "Editor: Waited for " << dt << " ms." << std::endl;
 }
 
 int main()
 {
+    if (glfwInit())
+        std::cout << "Editor: GLFW init success." << std::endl;
+    else
+        std::cout << "Editor: GLFW init fail." << std::endl;
+
     Runtime runtime;
 
     std::size_t output_count     = 0;
