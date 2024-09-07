@@ -1,4 +1,6 @@
-## glfw-get-time-test
+# glfw-get-time-test
+
+## The issue
 
 `glfw-in-dll` folder contains project that uses `glfwGetTime` in dll. 
 
@@ -108,3 +110,7 @@ Editor: Waited for 80.6122 ms.
 Editor: 1.17785s
 Runtime: 1.17831s
 ```
+
+## The reason
+
+The reason might be singleton class will have one instance in executable and another instance in dll. I am not sure.
