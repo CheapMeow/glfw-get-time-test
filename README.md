@@ -113,4 +113,6 @@ Runtime: 1.17831s
 
 ## The reason
 
-The reason might be singleton class will have one instance in executable and another instance in dll. I am not sure.
+I should take some steps to ensure glfw is built to dll, if I link glfw to a dll.
+
+I add `BUILD_SHARED_LIBS` option then solve the problem!
